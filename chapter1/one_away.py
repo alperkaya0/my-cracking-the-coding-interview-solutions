@@ -1,7 +1,7 @@
 import unittest
 
 def single_pass(s1, s2):
-    #Check lengths so that we won't compute something wrong from the start(and possibly end up with false positives-negatives)
+    #Check lengths so that we won't compute on something wrong from the start(and possibly end up with false positives-negatives)
     if len(s1) - 1 == len(s2) or len(s1) == len(s2) - 1 or len(s1) == len(s2):
         #I ASSUMED THAT STRINGS ARE ENCODED WITH ASCII
         s1_ascii_table = [0 for x in range(128)]
