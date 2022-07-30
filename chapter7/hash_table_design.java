@@ -109,14 +109,24 @@ class hash_table  {
 
         return temp % length;
     }
+    public void efficiency() {
+        double count = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            if (arr[i] != null) {
+                ++count;
+            }
+        }
+        System.out.println(count/arr.length);
+    }
     @Override
     public String toString() {
         String res = "";
-        for (int i = 0; i < arr.length; ++i) {
+        for (int i = 0; i < keySet.size(); ++i) {
             hash_table_node p = arr[hash(keySet.get(i))];
             if (p != null){
+                res += keySet.get(i) + ": ";
                 while (p != null) {
-                    res += p.val + "-> ";
+                    res += p.val + " -> ";
                     p = p.next;
                 }
                 res += "\n";
