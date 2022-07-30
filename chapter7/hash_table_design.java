@@ -7,6 +7,7 @@ import java.util.Random;
 public class hash_table_design {
     public static void main(String[] args) {
         hash_table h = new hash_table();
+        h.amortized_multiplier = 3;
         HashMap<String, Integer> hm = new HashMap<>();
         Random r = new Random();
         boolean passed = true;
@@ -32,6 +33,8 @@ public class hash_table_design {
         }
         System.out.println(h);
         System.out.println("Arr.length: " + h.arr.length);
+        
+        h.efficiency();
     }
 }
 class hash_table_node {
@@ -46,10 +49,10 @@ class hash_table_node {
     }
 }
 class hash_table  {
-    hash_table_node[] arr = new hash_table_node[10];
     ArrayList<String> keySet = new ArrayList<>();
     int insertion = 0;
     int amortized_multiplier = 3;
+    hash_table_node[] arr = new hash_table_node[(int)Math.pow(amortized_multiplier, 3)];
     public int find(String key) {
         hash_table_node temp = arr[hash(key)];
         if (temp.next == null) {
